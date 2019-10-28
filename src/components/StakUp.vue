@@ -10,18 +10,25 @@
       <h5 class="finish-heading-top">congrats, {{name}}</h5>
       <h2 class="finish-sub-heading-top">You're on track!</h2>
       <ul>
+        <li>
+          <div class="statsCard">
+            
+          </div>
+        </li>
+      </ul>
+      <ul>
         <li v-for="(result) in this.results" v-bind:key="result.key">
           <div class="statsCard">
             {{result.name}}
-            <p class="lead">{{result.stat}}%</p>
+            <p class="lead stakup">{{result.stat}}%</p>
             <p class="lead">
-              <b-progress :value="result.stat" :variant="'balls'" ></b-progress>
+              <b-progress id="1" :value="result.stat" :variant="result.variant"></b-progress>
             </p>
           </div>
         </li>
       </ul>
       <p class="lead">
-        <a v-on:click="handleReRoute" href="#" class="finishButton">share your results!</a>
+        <a  href="#" class="finishButton">share your results!</a>
       </p>
     </main>
 
@@ -47,6 +54,7 @@ export default {
           stat: 70,
           yearAvg: 0,
           majorRatio: 0,
+          variant: "primary",
           key: 1
         },
         {
@@ -54,6 +62,7 @@ export default {
           stat: 20,
           yearAvg: 0,
           majorRatio: 0,
+          variant: "success",
           key: 2
         },
         {
@@ -61,6 +70,7 @@ export default {
           stat: 45,
           yearAvg: 0,
           majorRatio: 0,
+          variant: "info",
           key: 3
         }
       ]
@@ -84,10 +94,10 @@ export default {
     }
   },
   methods: {
-    handleReRoute() {
-      this.results[0].stat= 92;
-      this.results[1].stat= 89;
-      this.results[2].stat= 76;
+    setStats() {
+      this.results[0].stat = 92;
+      this.results[1].stat = 89;
+      this.results[2].stat = 76;
       console.log("hello");
     }
   },
@@ -95,6 +105,9 @@ export default {
     if (this.onboard.school === "NULLNULL") {
       this.$router.push({ name: "start" });
     }
+  },
+  mounted() {
+    this.setStats();
   }
 };
 </script>
