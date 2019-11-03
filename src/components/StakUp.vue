@@ -1,45 +1,139 @@
 <template>
-  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
-    <header class="masthead mb-auto">
-      <div class="inner text-center">
-        <h3 class="masthead-brand">UniStak logo</h3>
-      </div>
-    </header>
+  <div>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+      <header class="masthead mb-auto">
+        <div class="inner text-center">
+          <h3 class="masthead-brand">UniStak logo</h3>
+        </div>
+      </header>
 
-    <main role="main" class="inner cover">
-      <h5 class="finish-heading-top">congrats, {{name}}</h5>
-      <h2 class="finish-sub-heading-top">You're on track!</h2>
-      <ul>
-        <li>
-          <div class="statsCard">
-            
-          </div>
-        </li>
-      </ul>
-      <ul>
-        <li v-for="(result) in this.results" v-bind:key="result.key">
-          <div class="statsCard">
-            {{result.name}}
-            <p class="lead stakup">{{result.stat}}%</p>
-            <p class="lead">
-              <b-progress id="1" :value="result.stat" :variant="result.variant"></b-progress>
-            </p>
-          </div>
-        </li>
-      </ul>
-      <p class="lead">
-        <a  href="#" class="finishButton">share your results!</a>
-      </p>
-    </main>
+      <main role="main" class="inner cover">
+        <h5 class="finish-heading-top">congrats, {{name}}</h5>
+        <h2 class="finish-sub-heading-top">You're on track!</h2>
+        <ul>
+          <li>
+            <div class="statsCard"></div>
+          </li>
+        </ul>
+        <ul>
+          <li v-for="(result) in this.results" v-bind:key="result.key">
+            <div class="statsCard">
+              {{result.name}}
+              <p class="lead stakup">{{result.stat}}%</p>
+              <p class="lead">
+                <b-progress id="1" :value="result.stat" :variant="result.variant"></b-progress>
+              </p>
+            </div>
+          </li>
+        </ul>
+        <p class="lead">
+          <a href="#" class="finishButton">share your results!</a>
+        </p>
+      </main>
 
-    <footer class="mastfoot mt-auto">
-      <div class="inner">
-        <p>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <!-- <p>
           Powered By
           <a href="https://getbootstrap.com/">tudr logo</a>
-        </p>
-      </div>
-    </footer>
+          </p>-->
+        </div>
+      </footer>
+    </div>
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+      <main role="main" class="inner cover">
+        <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
+        <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
+        <ul>
+          <li>
+            <div class="graduationFloatBox">
+              <p class="colorSlashes" style="color: #f64628">//</p>
+              <p class="sectionTitle">Grades</p>
+              <p class="sectionHeading">Lorem ipsum dolor</p>
+              <p
+                class="sectionText"
+              >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex qui eveniet soluta vero cum expedita molestias delectus et suscipit, porro reiciendis aspernatur quidem enim iste voluptas voluptatem atque itaque temporibus?</p>
+              <a href="#" class="btnempty left">
+                <span>Read More</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img class="gradCardImg" src="../assets/graduationCard.png" alt="Smiley face" />
+          </li>
+        </ul>
+        <ul>
+        </ul>
+      </main>
+
+    </div>
+
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+      <main role="main" class="inner cover">
+        <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
+        <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
+        <ul>
+                    <li>
+            <img class="gradCardImg" src="../assets/graduationCard.png" alt="Smiley face" />
+          </li>
+          <li>
+            <div class="graduationFloatBox">
+              <p class="colorSlashes" style="color: #cd01af">//</p>
+              <p class="sectionTitle">Graduation</p>
+              <p class="sectionHeading">Lorem ipsum dolor</p>
+              <p
+                class="sectionText"
+              >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex qui eveniet soluta vero cum expedita molestias delectus et suscipit, porro reiciendis aspernatur quidem enim iste voluptas voluptatem atque itaque temporibus?</p>
+              <a href="#" class="btnempty left">
+                <span>Read More</span>
+              </a>
+            </div>
+          </li>
+
+        </ul>
+        <ul>
+        </ul>
+      </main>
+
+
+    </div>
+
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+      <main role="main" class="inner cover">
+        <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
+        <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
+        <ul>
+          <li>
+            <div class="graduationFloatBox">
+              <p class="colorSlashes" style="color: #47ebff">//</p>
+              <p class="sectionTitle">Salary</p>
+              <p class="sectionHeading">Lorem ipsum dolor</p>
+              <p
+                class="sectionText"
+              >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex qui eveniet soluta vero cum expedita molestias delectus et suscipit, porro reiciendis aspernatur quidem enim iste voluptas voluptatem atque itaque temporibus?</p>
+              <a href="#" class="btnempty left">
+                <span>Read More</span>
+              </a>
+            </div>
+          </li>
+          <li>
+            <img class="gradCardImg" src="../assets/salaryCard.png" alt="Smiley face" />
+          </li>
+        </ul>
+        <ul>
+        </ul>
+      </main>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>
+            Powered By
+            <a href="https://getbootstrap.com/">tudr logo</a>
+          </p>
+        </div>
+      </footer>
+    </div>
   </div>
 </template>
 <script>

@@ -65,7 +65,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 62em;
 }
 
 
@@ -103,14 +103,7 @@ body {
   border-bottom-color: #fff;
 }
 
-@media (min-width: 48em) {
-  .masthead-brand {
-    /* float: left; */
-  }
-  .nav-masthead {
-    float: right;
-  }
-}
+
 
 
 /*
@@ -305,12 +298,125 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+
+
 /*
  * Footer
  */
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
+
+
+/* StakUp Page Design */
+
+.left {
+  text-align: left;
+  margin:0 !important;
+  margin-top: 20px !important;
+  margin-left: 1.7em !important;
+  color: white !important;
+  font-size: .7em !important;
+  height: 40px !important;
+}
+
+.colorSlashes,.sectionText {
+  margin: .2em 0;
+}
+
+.colorSlashes {
+  font-weight: 700;
+  letter-spacing: 5px;
+  font-size: 2em;
+}
+
+.sectionText {
+  font-size: 1.2em;
+  color: #adadad;
+}
+
+.sectionTitle {
+  font-size: 2em;
+  margin: -.2em 0;
+}
+.sectionHeading {
+  font-size: 1.6em;
+
+}
+
+.graduationFloatBox {
+  box-sizing: border-box;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 35em;
+  /* height: 160px; */
+  /* border: 1px solid slategray; */
+  margin: 15px;
+  /* margin-right: 6em; */
+  /* margin-top: 3.8em;
+  margin-bottom: 3.8em; */
+  text-align: left !important;
+}
+
+.gradCardImg {
+  border-radius: 28px;
+  float: right;
+}
+
+
+
+/* media Quries */
+
+/* @media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+} */
+
+@media (min-width: 1090px){
+  .graduationFloatBox {
+    /* margin-right: 13em; */
+  }
+
+  
+.colorSlashes,.sectionText {
+  margin: .4em 0;
+}
+
+.colorSlashes {
+  font-size: 4.6em;
+  margin: -30px 0;
+  padding-left: .1em;
+}
+
+.sectionText {
+  font-size: 1.4em;
+  padding-left: 1em;
+}
+
+.sectionHeading {
+  font-size: 1.9em;
+  padding-left: .75em;
+}
+.sectionTitle {
+  font-size: 7em;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin: -.2em 0;
+}
+
+.graduationFloatBox {
+  /* margin-right: 7em; */
+}
+
+  }
+
+  /* @media (min-width: 1070px){
+
+    } */
 
 
 /* Button Design */
