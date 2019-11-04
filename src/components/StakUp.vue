@@ -3,7 +3,9 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
       <header class="masthead mb-auto">
         <div class="inner text-center">
-          <h3 class="masthead-brand">UniStak logo</h3>
+          <h3 class="masthead-brand">
+            <img src="../assets/UniStak Logo@3x.svg" alt="logo" />
+          </h3>
         </div>
       </header>
 
@@ -41,12 +43,12 @@
       </footer>
     </div>
 
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center clearfix">
       <main role="main" class="inner cover">
         <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
         <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
-        <ul>
-          <li>
+        <ul class="flex-container wrap" style="display: flex; align-items: center;">
+          <li style="display:table-cell; vertical-align: middle;">
             <div class="graduationFloatBox">
               <p class="colorSlashes" style="color: #f64628">//</p>
               <p class="sectionTitle">Grades</p>
@@ -63,20 +65,17 @@
             <img class="gradCardImg" src="../assets/graduationCard.png" alt="Smiley face" />
           </li>
         </ul>
-        <ul>
-        </ul>
+        <ul></ul>
       </main>
-
     </div>
 
-
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center clearfix">
       <main role="main" class="inner cover">
         <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
         <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
-        <ul>
-                    <li>
-            <img class="gradCardImg" src="../assets/graduationCard.png" alt="Smiley face" />
+        <ul class="flex-container reverse-wrap" style="display: flex; align-items: center;">
+          <li style="display:table-cell; vertical-align: middle;">
+            <img class="gradCardImg" src="../assets/graduationCard.png"  alt="Smiley face" />
           </li>
           <li>
             <div class="graduationFloatBox">
@@ -91,21 +90,16 @@
               </a>
             </div>
           </li>
-
         </ul>
-        <ul>
-        </ul>
+        <ul></ul>
       </main>
-
-
     </div>
-
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
       <main role="main" class="inner cover">
         <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
         <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
-        <ul>
-          <li>
+        <ul class="flex-container wrap" style="display: flex; align-items: center;">
+          <li >
             <div class="graduationFloatBox">
               <p class="colorSlashes" style="color: #47ebff">//</p>
               <p class="sectionTitle">Salary</p>
@@ -118,22 +112,51 @@
               </a>
             </div>
           </li>
-          <li>
+          <li style="display:table-cell; vertical-align: middle;">
             <img class="gradCardImg" src="../assets/salaryCard.png" alt="Smiley face" />
           </li>
         </ul>
-        <ul>
+        <ul></ul>
+      </main>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+        </div>
+      </footer>
+    </div>
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+      <main role="main" class="inner cover">
+        <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
+        <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
+        <ul class="flex-container wrap" style="display: flex; align-items: center;">
+          <li >
+            <div class="graduationFloatBox">
+              <p class="colorSlashes" style="color: #47ebff">//</p>
+              <p class="sectionTitle">Salary</p>
+              <p class="sectionHeading">Lorem ipsum dolor</p>
+              <p
+                class="sectionText"
+              >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex qui eveniet soluta vero cum expedita molestias delectus et suscipit, porro reiciendis aspernatur quidem enim iste voluptas voluptatem atque itaque temporibus?</p>
+              <a href="#" class="btnempty left">
+                <span>Read More</span>
+              </a>
+            </div>
+          </li>
+          <li style="display:table-cell; vertical-align: middle;">
+            <img class="gradCardImg" src="../assets/salaryCard.png" alt="Smiley face" />
+          </li>
         </ul>
+        <ul></ul>
       </main>
       <footer class="mastfoot mt-auto">
         <div class="inner">
           <p>
-            Powered By
-            <a href="https://getbootstrap.com/">tudr logo</a>
+            <img src="../assets/Powered by Tudr.png" alt="logo" />
           </p>
         </div>
       </footer>
     </div>
+
+
   </div>
 </template>
 <script>

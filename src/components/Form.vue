@@ -2,7 +2,7 @@
   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
     <header class="masthead mb-auto">
       <div class="inner text-center">
-        <h3 class="masthead-brand">UniStak logo</h3>
+        <h3 class="masthead-brand"><img src="../assets/UniStak Logo@3x.svg" alt="logo"></h3>
       </div>
     </header>
 
@@ -17,7 +17,11 @@
               v-for="(school) in this.schools"
               v-bind:key="school.key"
             >
-              <div class="schoolCard">{{school.name}}</div>
+              
+              <div class="schoolCard">
+                <img class="schoolImg" :src="getImgUrl(school.img)" :alt="school.img">
+                <p class="school-p-bottom">{{school.name}}</p>
+                </div>
             </li>
           </ul>
           <p class="stepCount">{{step}}/4</p>
@@ -82,8 +86,7 @@
     <footer class="mastfoot mt-auto">
       <div class="inner">
         <p>
-          Powered By
-          <a href="https://getbootstrap.com/">tudr logo</a>
+         <img src="../assets/Powered by Tudr.png" alt="logo">
         </p>
       </div>
     </footer>
@@ -99,22 +102,26 @@ export default {
         {
           name: "Ball State",
           value: "bsu",
-          key: 1
+          key: 1,
+          img: 'ball-state-logo-university.png'
         },
         {
           name: "Purdue",
           value: "purdu",
-          key: 2
+          key: 2,
+          img: "1280px-Purdue_Boilermakers_logo.svg (1).png"
         },
         {
           name: "Ohio State",
           value: "os",
-          key: 3
+          key: 3,
+          img: "OhioStAthlOnBlack (1).png"
         },
         {
           name: "Indiana University",
           value: "iu",
-          key: 4
+          key: 4,
+          img: "Indiana_Hoosiers_logo.svg (1).png"
         }
       ],
       years: [
@@ -219,7 +226,10 @@ export default {
       if (this.onboard.major) {
         this.next();
       }
-    }
+    },
+    getImgUrl(pic) {
+    return require('../assets/'+pic)
+    },
   }
 };
 </script>

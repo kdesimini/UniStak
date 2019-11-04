@@ -2,7 +2,7 @@
   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
     <header class="masthead mb-auto">
       <div class="inner text-center">
-        <h3 class="masthead-brand">UniStak logo</h3>
+        <h3 class="masthead-brand"><img src="../assets/UniStak Logo@3x.svg" alt="logo"></h3>
       </div>
     </header>
 
@@ -10,9 +10,12 @@
       <h5 class="c-subheading-top">How well do you</h5>
       <h1 class="cover-heading orange-style">Stak-up</h1>
       <h5 class="c-subheading-bottom">in college?</h5>
-      <p
-        class="lead main"
-      >You only get one chance to make a first impression, so you better get it right - isn't that what they say?</p>
+      <div class="leadWrapper">
+        <p class="lead main"
+      >You only get one chance to make a first impression, so you better 
+      get it right - isn't that what they say?</p>
+      </div>
+      
       <p class="lead">
         <span>
           <input
@@ -29,8 +32,7 @@
     <footer class="mastfoot mt-auto">
       <div class="inner">
         <p>
-          Powered By
-          <a href="https://getbootstrap.com/">tudr logo</a>
+          <img src="../assets/Powered by Tudr.png" alt="logo">
         </p>
       </div>
     </footer>

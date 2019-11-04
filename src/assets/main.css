@@ -45,11 +45,16 @@ input[type=text]:focus {
     max-width: 75em !important;
 }
 
-html,
+html {
+  height: 100%;
+}
+
 body {
   height: 100%;
-  background: url(bg.png);
+  background: rgba(0,0,0,1); 
+  background-image: url(bg.png) ;
   background-size: cover;
+
 }
 
 body {
@@ -137,6 +142,7 @@ body {
 .finish-heading-top {
   text-transform: uppercase;
   letter-spacing: .5ch;
+  margin-top: 6em;
   margin-bottom: 1em;
 }
 
@@ -155,10 +161,11 @@ body {
 h1 {
     font-size: 12em;
     font-weight: 700 !important;
-    background: linear-gradient(360deg, #fff, #ff6e54 60%);
+    background: linear-gradient(90deg,  #ff3715 16%, #4B095E 74% );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    transition: all 1s;
 }
 
 .gpaHeading {
@@ -173,10 +180,72 @@ h1 {
 
 }
 
+
+.leadWrapper {
+  text-align: center;
+  /* padding-left: 160px; */
+  /* padding-right: 160px; */
+  max-width: 50%;
+  margin: 0 auto;  
+}
+
+
+@media (max-width: 907px){
+ 
+  div .schoolCard {
+    margin: 10px;
+
+  }
+}
+
+@media (max-width: 800px){
+ 
+  input { 
+    display: inline-block;
+    -webkit-appearance: none; 
+    margin-bottom: 15px !important;
+  }
+
+  .cover-heading {
+    font-size: 7em;
+  }
+
+
+}
+
+@media (max-width: 500px){
+  .leadWrapper {
+    width: 100% !important;
+    max-width: initial;
+  }
+  .cover-heading {
+    font-size: 5em;
+  }  
+  input { 
+    display: inline-block;
+    margin: 0;
+  }
+
+  div .yearCard {
+    width: 145px;
+    height: 50px;
+    margin-bottom: 5px;
+
+  }
+
+  ul.yearButtons li {
+    padding: 0;
+  }
+  
+  h3.masthead-brand {
+    margin-bottom: 40px;
+  }
+}
+
+
 .lead.main {
-    padding: 18px 150px;
     font-weight: 400;
-    font-size: 1.05em;
+    font-size: 1.2em;
 }
 
 .lead {
@@ -227,14 +296,33 @@ h1 {
 }
 
 .schoolCard {
-  /* display: inline-block;
-  box-sizing: border-box; */
-  width: 130px;
-  height: 160px;
-  background: rgb(71, 71, 71);
+  display: inline-block;
+  box-sizing: border-box;
+  width: 147px;
+  height: 172px;
+  background: linear-gradient(135.21deg, rgba(36,38,43,0) 0%, rgba(25,28,31,0.65) 100%);
+  border-radius: 7px;
   margin: 20px;
   margin-top: 3.8em;
   margin-bottom: 3.8em;
+  position: relative;
+  transition: all 1s;
+}
+.schoolImg {
+  position: relative;
+  text-align: center;
+  margin-top: 30px !important;
+  height:82px;
+  width: 82px;
+  margin-top: 10px;
+
+}
+
+.schoolCard .school-p-bottom {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
 }
 
 .schoolCard:hover {
@@ -245,8 +333,8 @@ h1 {
 .yearCard {
   /* display: inline-block;
   box-sizing: border-box; */
-  width: 130px;
-  height: 60px;
+  width: 164px;
+  height: 63px;
   background: linear-gradient(to right,#0a0a0b, #101214)  ;
   margin: 5px;
   border-radius: 10px;
@@ -358,30 +446,48 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: left !important;
 }
 
+.flex-container {
+  
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+}
+
+.wrap    { 
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}  
+
+.reverse-wrap    { 
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}  
+
+.graduationFloatBoxt {
+  box-sizing: border-box;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 35em;
+  /* height: 160px; */
+  /* border: 1px solid slategray; */
+  margin: 15px;
+  /* margin-right: 6em; */
+  /* margin-top: 3.8em;
+  margin-bottom: 3.8em; */
+  text-align: left !important;
+}
+
 .gradCardImg {
   border-radius: 28px;
   float: right;
 }
 
 
-
-/* media Quries */
-
-/* @media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
-} */
-
-@media (min-width: 1090px){
-  .graduationFloatBox {
-    /* margin-right: 13em; */
-  }
-
-  
 .colorSlashes,.sectionText {
   margin: .4em 0;
 }
@@ -408,15 +514,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: -.2em 0;
 }
 
-.graduationFloatBox {
-  /* margin-right: 7em; */
-}
-
-  }
-
-  /* @media (min-width: 1070px){
-
-    } */
 
 
 /* Button Design */
