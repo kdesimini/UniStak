@@ -14,7 +14,12 @@
         <h2 class="finish-sub-heading-top">You're on track!</h2>
         <ul>
           <li>
-            <div class="statsCard"></div>
+            <div class="statsCard">
+              <img class="statsImg" :src="getImgUrl(onboard.img)">
+              <p class="statsParagraphTop">{{onboard.major}} / {{onboard.year}}</p>
+              <p class="statsNumber">#24</p>
+              <p class="statsLogo"><img src="../assets/UniStak Logo@3x.svg" alt="logo" width="80" height="14" /></p>
+            </div>
           </li>
         </ul>
         <ul>
@@ -205,7 +210,8 @@ export default {
           school: "NULLNULL",
           gpa: "3.5",
           major: "Computer Science",
-          year: "Senior"
+          year: "Senior",
+          img: ""
         };
       }
     }
@@ -216,7 +222,10 @@ export default {
       this.results[1].stat = 89;
       this.results[2].stat = 76;
       console.log("hello");
-    }
+    },
+    getImgUrl(pic) {
+    return require('../assets/'+pic)
+    },
   },
   created() {
     if (this.onboard.school === "NULLNULL") {

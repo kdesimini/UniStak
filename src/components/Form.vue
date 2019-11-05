@@ -13,7 +13,7 @@
           <h2>What school do you go to?</h2>
           <ul>
             <li
-              v-on:click="handleCardPressed(school.name)"
+              v-on:click="handleCardPressed(school.name, school.img)"
               v-for="(school) in this.schools"
               v-bind:key="school.key"
             >
@@ -170,7 +170,8 @@ export default {
           school: "Ball State",
           gpa: "",
           major: "",
-          year: ""
+          year: "",
+          img: ""
         };
       }
     }
@@ -193,8 +194,10 @@ export default {
         params: { onboard: this.onboard, name: this.name }
       });
     },
-    handleCardPressed(value) {
+    handleCardPressed(value, img) {
       this.onboard.school = value;
+      this.onboard.img = img;
+
       this.next();
     },
     handleYearCardPressed(value) {
