@@ -190,7 +190,7 @@ h1 {
 }
 
 
-@media (max-width: 907px){
+@media (max-width: 920px){
  
   div .schoolCard {
     margin: 10px;
@@ -241,7 +241,7 @@ h1 {
 
 }
 
-@media (max-width: 500px){
+@media (max-width: 484px){
   .leadWrapper {
     width: 100% !important;
     max-width: initial;
@@ -282,8 +282,58 @@ h1 {
     float: none !important;
   }
 
+  div.schoolCard {
+    margin: 0;
+    width: 117px;
+    height: 142px;
+  }
+
+  img.schoolImg {
+    height: 62px;
+    width: 62px;
+  }
+
+  p.school-p-bottom {
+    font-size: .8rem;
+  }
+
+  .cover-heading {
+    font-size: 7em ;
+  }
+
+  .colorSlashes,.sectionText {
+    margin: .2em 34px !important;
+  }
+  
+  .colorSlashes {
+    font-weight: 700;
+    letter-spacing: 5px;
+    font-size: 2em !important;
+  }
+  
+  .sectionText {
+    font-size: 1.2em !important;
+    color: #adadad;
+    padding-left: .2em !important;
+  }
+  
+  .sectionTitle {
+    font-size: 3em !important;
+    margin: -.2em 8% !important;
+  }
+  .sectionHeading {
+    font-size: 1.4em !important;
+    margin: -.2em 5% !important;
+    
+  
+  }
+
+  .statsCard {
+    margin: 0 !important;
+  }
 }
 
+/* End Media Queries */
 
 .lead.main {
     font-weight: 400;
@@ -418,6 +468,7 @@ h1 {
   background: linear-gradient(to right,#0a0a0b, #101214)  ;
   margin: 5px;
   border-radius: 10px;
+  transition: all 1s;
   /* margin-top: 1.8em; */
   /* margin-bottom: 3.8em; */
 }
