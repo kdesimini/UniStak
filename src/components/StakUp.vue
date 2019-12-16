@@ -15,10 +15,12 @@
         <ul>
           <li>
             <div class="statsCard">
-              <img class="statsImg" :src="getImgUrl(onboard.img)">
+              <img class="statsImg" :src="getImgUrl(onboard.img)" />
               <p class="statsParagraphTop">{{onboard.major}} / {{onboard.year}}</p>
               <p class="statsNumber">#24</p>
-              <p class="statsLogo"><img src="../assets/UniStak Logo@3x.svg" alt="logo" width="80" height="14" /></p>
+              <p class="statsLogo">
+                <img src="../assets/UniStak Logo@3x.svg" alt="logo" width="80" height="14" />
+              </p>
             </div>
           </li>
         </ul>
@@ -26,7 +28,7 @@
           <li v-for="(result) in this.results" v-bind:key="result.key">
             <div class="statsCard">
               {{result.name}}
-              <p class="lead stakup">{{result.stat}}%</p>
+              <p class="lead stakup">{{result.stat}}</p>
               <p class="lead">
                 <b-progress id="1" :value="result.stat" :variant="result.variant"></b-progress>
               </p>
@@ -74,13 +76,13 @@
       </main>
     </div>
 
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center clearfix">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center clearfix">
       <main role="main" class="inner cover">
         <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
         <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
         <ul class="flex-container reverse-wrap" style="display: flex; align-items: center;">
           <li style="display:table-cell; vertical-align: middle;">
-            <img class="gradCardImg" src="../assets/graduationCard.png"  alt="Smiley face" />
+            <img class="gradCardImg" src="../assets/graduationCard.png" alt="Smiley face" />
           </li>
           <li>
             <div class="graduationFloatBox">
@@ -104,7 +106,7 @@
         <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
         <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
         <ul class="flex-container wrap" style="display: flex; align-items: center;">
-          <li >
+          <li>
             <div class="graduationFloatBox">
               <p class="colorSlashes" style="color: #47ebff">//</p>
               <p class="sectionTitle">Salary</p>
@@ -124,44 +126,31 @@
         <ul></ul>
       </main>
       <footer class="mastfoot mt-auto">
-        <div class="inner">
-        </div>
+        <div class></div>
       </footer>
     </div>
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
-      <main role="main" class="inner cover">
-        <!-- <h5 class="finish-heading-top">congrats, {{name}}</h5> -->
-        <!-- <h2 class="finish-sub-heading-top">You're on track!</h2> -->
-        <ul class="flex-container wrap" style="display: flex; align-items: center;">
-          <li >
-            <div class="graduationFloatBox">
-              <p class="colorSlashes" style="color: #47ebff">//</p>
-              <p class="sectionTitle">Salary</p>
-              <p class="sectionHeading">Lorem ipsum dolor</p>
-              <p
-                class="sectionText"
-              >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex qui eveniet soluta vero cum expedita molestias delectus et suscipit, porro reiciendis aspernatur quidem enim iste voluptas voluptatem atque itaque temporibus?</p>
-              <a href="#" class="btnempty left">
-                <span>Read More</span>
-              </a>
-            </div>
-          </li>
-          <li style="display:table-cell; vertical-align: middle;">
-            <img class="gradCardImg" src="../assets/salaryCard.png" alt="Smiley face" />
-          </li>
-        </ul>
-        <ul></ul>
-      </main>
+      <main role="main" class="cover bottomSection"></main>
       <footer class="mastfoot mt-auto">
-        <div class="inner">
+        <div class="inner bottomSection">
           <p>
             <img src="../assets/Powered by Tudr.png" alt="logo" />
           </p>
+          <div class="up-your-game">Up your game.</div>
+          <div
+            class="breeze-through-your"
+          >Breeze through your next assignment, test, lab report, or quiz.</div>
+          <div class="get-other-stud">
+            Get other students to teach you the coursework you're working on.
+          </div>
+          <a
+            v-on:click="handleReRoute"
+            href="#"
+            class="btn btn-lg btn-secondary button-spacing"
+          >get started</a>
         </div>
       </footer>
     </div>
-
-
   </div>
 </template>
 <script>
@@ -195,7 +184,8 @@ export default {
           variant: "info",
           key: 3
         }
-      ]
+      ],
+      queryResults: []
     };
   },
   props: {
@@ -208,6 +198,7 @@ export default {
       default: () => {
         return {
           school: "NULLNULL",
+          id: "",
           gpa: "3.5",
           major: "Computer Science",
           year: "Senior",
@@ -219,13 +210,29 @@ export default {
   methods: {
     setStats() {
       this.results[0].stat = 92;
-      this.results[1].stat = 89;
+      this.results[1].stat =
+        this.queryResults.completion.rate_suppressed.four_year * 100;
       this.results[2].stat = 76;
       console.log("hello");
     },
     getImgUrl(pic) {
-    return require('../assets/'+pic)
+      return require("../assets/" + pic);
     },
+    fetchData() {
+      const baseURI = this.queryBuilder(this.onboard.id);
+      this.$http.get(baseURI).then(result => {
+        this.queryResults = result.data.results[0].latest;
+        console.log(result.data.results[0].latest);
+        this.setStats();
+      });
+    },
+    queryBuilder(id) {
+      let query =
+        "https://api.data.gov/ed/collegescorecard/v1/schools?id=" +
+        id +
+        "&api_key=ipjrz5j95hnEGS0dGvG5bcyWWzchHkapHV3gxTcO";
+      return query;
+    }
   },
   created() {
     if (this.onboard.school === "NULLNULL") {
@@ -233,7 +240,7 @@ export default {
     }
   },
   mounted() {
-    this.setStats();
+    this.fetchData();
   }
 };
 </script>

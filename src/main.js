@@ -6,7 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/main.css';
 import routes from './routes';
+import axios from 'axios';
 
+Vue.prototype.$http = axios //global to access axios
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
