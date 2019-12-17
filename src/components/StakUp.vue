@@ -16,7 +16,7 @@
           <li>
             <div class="statsCard">
               <img class="statsImg" :src="getImgUrl(onboard.img)" />
-              <p class="statsParagraphTop">{{onboard.major}} / {{onboard.year}}</p>
+              <p class="statsParagraphTop">{{onboard.major}} // {{onboard.year}}</p>
               <p class="statsNumber">#24</p>
               <p class="statsLogo">
                 <img src="../assets/UniStak Logo@3x.svg" alt="logo" width="80" height="14" />
@@ -26,7 +26,7 @@
         </ul>
         <ul>
           <li v-for="(result) in this.results" v-bind:key="result.key">
-            <div class="statsCard">
+            <div class="resultsCard">
               {{result.name}}
               <p class="lead stakup">{{result.stat}}</p>
               <p class="lead">
@@ -144,10 +144,9 @@
             Get other students to teach you the coursework you're working on.
           </div>
           <a
-            v-on:click="handleReRoute"
             href="#"
             class="btn btn-lg btn-secondary button-spacing"
-          >get started</a>
+          >Get Tudr</a>
         </div>
       </footer>
     </div>
@@ -162,7 +161,7 @@ export default {
       results: [
         {
           name: "Grades",
-          stat: 70,
+          stat: 0,
           yearAvg: 0,
           majorRatio: 0,
           variant: "primary",
@@ -170,7 +169,7 @@ export default {
         },
         {
           name: "Graduation",
-          stat: 20,
+          stat: 0,
           yearAvg: 0,
           majorRatio: 0,
           variant: "success",
@@ -178,7 +177,7 @@ export default {
         },
         {
           name: "Salary",
-          stat: 45,
+          stat: 0,
           yearAvg: 0,
           majorRatio: 0,
           variant: "info",
@@ -209,10 +208,10 @@ export default {
   },
   methods: {
     setStats() {
-      this.results[0].stat = 92;
+      this.results[0].stat = 0;
       this.results[1].stat =
         this.queryResults.completion.rate_suppressed.four_year * 100;
-      this.results[2].stat = 76;
+      this.results[2].stat = 0;
       console.log("hello");
     },
     getImgUrl(pic) {
@@ -235,6 +234,7 @@ export default {
     }
   },
   created() {
+    // If page is visited without filling out form, redirect.
     if (this.onboard.school === "NULLNULL") {
       this.$router.push({ name: "start" });
     }

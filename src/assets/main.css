@@ -472,7 +472,25 @@ h1 {
 .statsNumber {
   text-align: center;
   color: #FF5D61;
+  font-weight: 800;
   font-size: 70px;
+}
+
+.resultsCard {
+  box-sizing: border-box;
+  padding: 25px;
+  border-radius: 10px;
+  width: 406px;
+  height: 184;
+  background: linear-gradient(to right, #0a0a0b, #101214);
+  margin: 15px;
+  /* margin-top: 3.8em;
+  margin-bottom: 3.8em; */
+  text-align: left !important;
+  position: relative;
+  text-align: center;
+  margin-top: 30px !important;
+  margin-top: 10px;
 }
 
 .schoolCard {
