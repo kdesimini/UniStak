@@ -11,4 +11,5 @@ export default {
 
 <style lang="css">
 @import 'assets/main.css';
+
 </style>
