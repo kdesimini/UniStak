@@ -2,7 +2,9 @@
   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
     <header class="masthead mb-auto">
       <div class="inner text-center">
-        <h3 class="masthead-brand"><img src="../assets/UniStak Logo@3x.svg" alt="logo"></h3>
+        <h3 class="masthead-brand">
+          <img src="../assets/UniStak Logo@3x.svg" alt="logo" />
+        </h3>
       </div>
     </header>
 
@@ -13,18 +15,23 @@
           <h2>What school do you go to?</h2>
           <ul>
             <li
-              v-on:click="handleCardPressed(school.name, school.value, school.img)"
-              v-for="(school) in this.schools"
+              v-on:click="
+                handleCardPressed(school.name, school.value, school.img)
+              "
+              v-for="school in this.schools"
               v-bind:key="school.key"
             >
-              
               <div class="schoolCard">
-                <img class="schoolImg" :src="getImgUrl(school.img)" :alt="school.img">
-                <p class="school-p-bottom">{{school.name}}</p>
-                </div>
+                <img
+                  class="schoolImg"
+                  :src="getImgUrl(school.img)"
+                  :alt="school.img"
+                />
+                <p class="school-p-bottom">{{ school.name }}</p>
+              </div>
             </li>
           </ul>
-          <p class="stepCount">{{step}}/4</p>
+          <p class="stepCount">{{ step }}/4</p>
         </div>
         <!-- Step 2 -->
         <div class="clearfix" v-show="step === 2">
@@ -41,7 +48,7 @@
           <a v-on:click="handleGPAentered" href="#" class="btnempty">
             <span>Next</span>
           </a>
-          <p class="stepCount">{{step}}/4</p>
+          <p class="stepCount">{{ step }}/4</p>
         </div>
         <!-- Step 3 -->
         <div class="clearfix" v-show="step === 3">
@@ -53,11 +60,12 @@
               v-on:keydown.enter="handleMajorentered($event)"
               v-model="onboard.major"
             />
+            <v-select :options="options"></v-select>
           </p>
           <a v-on:click="handleMajorentered" href="#" class="btnempty">
             <span>Next</span>
           </a>
-          <p class="stepCount">{{step}}/4</p>
+          <p class="stepCount">{{ step }}/4</p>
         </div>
 
         <!-- Step 4 -->
@@ -67,18 +75,22 @@
           <ul class="yearButtons">
             <li
               v-on:click="handleYearCardPressed(year.name)"
-              v-for="(year) in this.years"
+              v-for="year in this.years"
               v-bind:key="year.key"
-              
             >
-              <div v-bind:class="{ cardSelected: year.selected }" class="yearCard"><p class="yearCardText">{{year.name}}</p></div>
+              <div
+                v-bind:class="{ cardSelected: year.selected }"
+                class="yearCard"
+              >
+                <p class="yearCardText">{{ year.name }}</p>
+              </div>
             </li>
           </ul>
 
           <a v-on:click="finish" href="#" class="finishButton">
             <span>see where you stak!</span>
           </a>
-          <p class="stepCount">{{step}}/4</p>
+          <p class="stepCount">{{ step }}/4</p>
         </div>
       </form>
     </main>
@@ -86,7 +98,7 @@
     <footer class="mastfoot mt-auto">
       <div class="inner">
         <p>
-         <img src="../assets/Powered by Tudr.png" alt="logo">
+          <img src="../assets/Powered by Tudr.png" alt="logo" />
         </p>
       </div>
     </footer>
@@ -103,11 +115,11 @@ export default {
           name: "Ball State",
           value: "150136",
           key: 1,
-          img: 'ball-state-logo-university.png'
+          img: "ball-state-logo-university.png"
         },
         {
           name: "Purdue",
-          value: "purdu",
+          value: "243744",
           key: 2,
           img: "1280px-Purdue_Boilermakers_logo.svg (1).png"
         },
@@ -155,7 +167,9 @@ export default {
           key: 5,
           selected: false
         }
-      ]
+      ],
+      options: [{ label: "Canada", code: "ca" }],
+      queryResults: []
     };
   },
   props: {
@@ -195,10 +209,11 @@ export default {
         params: { onboard: this.onboard, name: this.name }
       });
     },
-    handleCardPressed(name,id, img) {
+    handleCardPressed(name, id, img) {
       this.onboard.school = name;
-      this.onboard.id = id
+      this.onboard.id = id;
       this.onboard.img = img;
+            this.fetchData();
 
       this.next();
     },
@@ -206,12 +221,14 @@ export default {
       this.onboard.year = value;
 
       // resetting all selected values
-      this.years.forEach((e) => {return e.selected = false ;});
+      this.years.forEach(e => {
+        return (e.selected = false);
+      });
 
       // finding the object that matches the value from the card click
-      this.years.find( ({ name }) => {
-        return name === value;}).selected = true;
-
+      this.years.find(({ name }) => {
+        return name === value;
+      }).selected = true;
       // this.next();
     },
     handleGPAentered($event) {
@@ -233,7 +250,27 @@ export default {
       }
     },
     getImgUrl(pic) {
-    return require('../assets/'+pic)
+      return require("../assets/" + pic);
+    },
+    fetchData() {
+      const baseURI = this.queryBuilder(this.onboard.id);
+      this.$http.get(baseURI).then(result => {
+        this.queryResults = result.data.results[0].latest;
+        console.log(result.data.results[0].latest);
+        this.getPrograms();
+      });
+    },
+    queryBuilder(id) {
+      let query =
+        "https://api.data.gov/ed/collegescorecard/v1/schools?id=" +
+        id +
+        "&api_key=ipjrz5j95hnEGS0dGvG5bcyWWzchHkapHV3gxTcO";
+      return query;
+    },
+    getPrograms() {
+      this.options =
+        this.queryResults.programs.cip_4_digit;
+      
     },
   }
 };

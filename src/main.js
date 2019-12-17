@@ -7,12 +7,17 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/main.css';
 import routes from './routes';
 import axios from 'axios';
+import vSelect from 'vue-select'
+
+Vue.component('v-select', vSelect)
+import 'vue-select/dist/vue-select.css';
 
 Vue.prototype.$http = axios //global to access axios
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
+Vue.use(vSelect);
 
 const router = new VueRouter({mode: 'history',routes});
 
