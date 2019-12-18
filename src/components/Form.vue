@@ -55,8 +55,12 @@
               placeholder="Search for your major"
               v-on:keydown.enter="handleMajorentered($event)"
               v-model="onboard.major"
-            /> -->
-            <v-select v-model="onboard.major" placeholder="Search for your major" :options="options"></v-select>
+            />-->
+            <v-select
+              v-model="onboard.major"
+              placeholder="Search for your major"
+              :options="options"
+            ></v-select>
           </p>
           <a v-on:click="handleMajorentered" href="#" class="btnempty">
             <span>Next</span>
@@ -263,17 +267,19 @@ export default {
     populateMajorDropdown() {
       //Inserting objects into dropdown {area of study and salary}
       let cipResults = this.queryResults.programs.cip_4_digit;
+      let highLow = this.findHighAndLowSalary(cipResults);
+      console.log(highLow);
       for (let x of cipResults) {
         if (x.earnings.median_earnings !== null) {
           this.options.unshift({
             label: x.title,
-            salary: x.earnings.median_earnings
+            salary: x.earnings.median_earnings,
+            salaryLow: highLow.low,
+            salaryHigh: highLow.high
           });
           this.removeDuplicates();
         }
       }
-      
-
     },
     removeDuplicates() {
       // Remove duplicate items from API call.
@@ -287,8 +293,15 @@ export default {
       }, []);
     },
 
-    findHighAndLowSalary() {
-
+    findHighAndLowSalary(cipResults) {
+      let salaries = [];
+      for (let x of cipResults) {
+        if (x.earnings.median_earnings !== null) {
+          salaries.push(x.earnings.median_earnings)
+        }
+      }
+      salaries.sort((a, b) => a - b);
+      return { low: salaries[0], high: salaries[salaries.length-1] };
     }
   }
 };
