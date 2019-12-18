@@ -196,7 +196,7 @@ export default {
           school: "NULLNULL",
           id: "",
           gpa: "3.5",
-          major: {}, //are of study and salary
+          major: {}, //are of study, salary, salary high, salary low
           year: "Senior",
           img: ""
         };
