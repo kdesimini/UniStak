@@ -22,11 +22,7 @@
               v-bind:key="school.key"
             >
               <div class="schoolCard">
-                <img
-                  class="schoolImg"
-                  :src="getImgUrl(school.img)"
-                  :alt="school.img"
-                />
+                <img class="schoolImg" :src="getImgUrl(school.img)" :alt="school.img" />
                 <p class="school-p-bottom">{{ school.name }}</p>
               </div>
             </li>
@@ -54,13 +50,13 @@
         <div class="clearfix" v-show="step === 3">
           <h2 class="gpaHeading">What are you studying?</h2>
           <p class="lead">
-            <input
+            <!-- <input
               type="text"
               placeholder="Search for your major"
               v-on:keydown.enter="handleMajorentered($event)"
               v-model="onboard.major"
-            />
-            <v-select :options="options"></v-select>
+            /> -->
+            <v-select v-model="onboard.major" placeholder="Search for your major" :options="options"></v-select>
           </p>
           <a v-on:click="handleMajorentered" href="#" class="btnempty">
             <span>Next</span>
@@ -78,10 +74,7 @@
               v-for="year in this.years"
               v-bind:key="year.key"
             >
-              <div
-                v-bind:class="{ cardSelected: year.selected }"
-                class="yearCard"
-              >
+              <div v-bind:class="{ cardSelected: year.selected }" class="yearCard">
                 <p class="yearCardText">{{ year.name }}</p>
               </div>
             </li>
@@ -168,7 +161,7 @@ export default {
           selected: false
         }
       ],
-      options: [{ label: "Canada", code: "ca" }],
+      options: [{ label: "Other", code: 59124 }],
       queryResults: []
     };
   },
@@ -213,7 +206,7 @@ export default {
       this.onboard.school = name;
       this.onboard.id = id;
       this.onboard.img = img;
-            this.fetchData();
+      this.fetchData();
 
       this.next();
     },
@@ -257,7 +250,7 @@ export default {
       this.$http.get(baseURI).then(result => {
         this.queryResults = result.data.results[0].latest;
         console.log(result.data.results[0].latest);
-        this.getPrograms();
+        this.populateMajorDropdown();
       });
     },
     queryBuilder(id) {
@@ -267,11 +260,36 @@ export default {
         "&api_key=ipjrz5j95hnEGS0dGvG5bcyWWzchHkapHV3gxTcO";
       return query;
     },
-    getPrograms() {
-      this.options =
-        this.queryResults.programs.cip_4_digit;
+    populateMajorDropdown() {
+      //Inserting objects into dropdown {area of study and salary}
+      let cipResults = this.queryResults.programs.cip_4_digit;
+      for (let x of cipResults) {
+        if (x.earnings.median_earnings !== null) {
+          this.options.unshift({
+            label: x.title,
+            salary: x.earnings.median_earnings
+          });
+          this.removeDuplicates();
+        }
+      }
       
+
     },
+    removeDuplicates() {
+      // Remove duplicate items from API call.
+      this.options = this.options.reduce((acc, current) => {
+        const x = acc.find(item => item.label === current.label);
+        if (!x) {
+          return acc.concat([current]);
+        } else {
+          return acc;
+        }
+      }, []);
+    },
+
+    findHighAndLowSalary() {
+
+    }
   }
 };
 </script>
