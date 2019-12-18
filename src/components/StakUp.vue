@@ -16,7 +16,7 @@
           <li>
             <div class="statsCard">
               <img class="statsImg" :src="getImgUrl(onboard.img)" />
-              <p class="statsParagraphTop">{{onboard.major}} // {{onboard.year}}</p>
+              <p class="statsParagraphTop">{{onboard.major.label | truncate(10, '...')}} // {{onboard.year}}</p>
               <p class="statsNumber">#24</p>
               <p class="statsLogo">
                 <img src="../assets/UniStak Logo@3x.svg" alt="logo" width="80" height="14" />
@@ -140,13 +140,10 @@
           <div
             class="breeze-through-your"
           >Breeze through your next assignment, test, lab report, or quiz.</div>
-          <div class="get-other-stud">
-            Get other students to teach you the coursework you're working on.
-          </div>
-          <a
-            href="#"
-            class="btn btn-lg btn-secondary button-spacing"
-          >Get Tudr</a>
+          <div
+            class="get-other-stud"
+          >Get other students to teach you the coursework you're working on.</div>
+          <a href="#" class="btn btn-lg btn-secondary button-spacing">Get Tudr</a>
         </div>
       </footer>
     </div>
@@ -199,7 +196,7 @@ export default {
           school: "NULLNULL",
           id: "",
           gpa: "3.5",
-          major: "Computer Science",
+          major: {}, //are of study and salary
           year: "Senior",
           img: ""
         };
@@ -231,6 +228,12 @@ export default {
         id +
         "&api_key=ipjrz5j95hnEGS0dGvG5bcyWWzchHkapHV3gxTcO";
       return query;
+    }
+  },
+  filters: {
+    // Truncate text that is too large to fit in cards/page 
+    truncate: function(text, length, suffix) {
+      return text.substring(0, length) + suffix;
     }
   },
   created() {
