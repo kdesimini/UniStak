@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700,800&display=swap");
 /*
  * Globals
  */
@@ -18,34 +18,32 @@ a:hover {
   text-shadow: none;
   /* Prevent inheritance from `body` */
   background-color: #fff;
-  border: .05rem solid #fff;
+  border: 0.05rem solid #fff;
 }
-
 
 input {
   border: none;
   background: #191919;
   border-radius: 15px;
   color: seashell;
-  font-size: .9em;
+  font-size: 0.9em;
   padding: 1.2rem 6.2rem 1.2rem 1.25rem;
   margin-right: 15px;
   font-weight: 700;
   letter-spacing: 1.1px;
 }
 
-input[type=text]:focus {
+input[type="text"]:focus {
   border: none !important;
   outline: none;
 }
-
 
 /*
  * Base structure
  */
 
 .cover-container {
-  max-width: 75em !important;
+  max-width: 100em !important;
 }
 
 html {
@@ -57,8 +55,7 @@ body {
   background: rgba(0, 0, 0, 1);
   background-image: url(bg.png);
   background-size: cover;
-  font-family: 'Montserrat', sans-serif;
-
+  font-family: "Montserrat", sans-serif !important;
 }
 
 body {
@@ -69,12 +66,8 @@ body {
   -webkit-box-pack: center;
   justify-content: center;
   color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-}
-
-.cover-container {
-  max-width: 62em;
+  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
 }
 
 
@@ -91,19 +84,19 @@ body {
 }
 
 .nav-masthead .nav-link {
-  padding: .25rem 0;
+  padding: 0.25rem 0;
   font-weight: 700;
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, 0.5);
   background-color: transparent;
-  border-bottom: .25rem solid transparent;
+  border-bottom: 0.25rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
+  border-bottom-color: rgba(255, 255, 255, 0.25);
 }
 
-.nav-masthead .nav-link+.nav-link {
+.nav-masthead .nav-link + .nav-link {
   margin-left: 1rem;
 }
 
@@ -111,9 +104,6 @@ body {
   color: #fff;
   border-bottom-color: #fff;
 }
-
-
-
 
 /*
  * Cover
@@ -125,7 +115,7 @@ body {
 .btn-lg {
   padding: 1.2rem 2.5rem;
   font-weight: 600;
-  font-size: .9em;
+  font-size: 0.9em;
   background: linear-gradient(to right, #d83b31, #801c4d);
   color: white;
   text-transform: uppercase;
@@ -134,19 +124,17 @@ body {
   letter-spacing: 1.2px;
 }
 
-
-
-
 /* Text */
 .c-subheading-top {
   text-transform: uppercase;
-  letter-spacing: .5ch;
-  margin-bottom: -.8em;
+  letter-spacing: 0.4ch;
+  margin-bottom: -0.8em;
+  font-weight: 600;
 }
 
 .finish-heading-top {
   text-transform: uppercase;
-  letter-spacing: .5ch;
+  letter-spacing: 0.5ch;
   margin-top: 6em;
   margin-bottom: 1em;
 }
@@ -158,15 +146,16 @@ body {
 
 .c-subheading-bottom {
   text-transform: uppercase;
-  letter-spacing: .5ch;
+  letter-spacing: 0.4ch;
   margin-bottom: 1em;
-  margin-top: -.8em;
+  margin-top: -0.8em;
+  font-weight: 600;
 }
 
 h1 {
   font-size: 12em;
   font-weight: 700 !important;
-  background: linear-gradient(90deg, #ff3715 16%, #4B095E 74%);
+  background: linear-gradient(90deg, #ff3715 16%, #4b095e 74%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -179,36 +168,30 @@ h1 {
 }
 
 .lying {
-  margin-top: .7em;
+  margin-top: 0.7em;
   margin-bottom: 1.4em;
   color: #818181;
-
 }
-
 
 .leadWrapper {
   text-align: center;
   /* padding-left: 160px; */
   /* padding-right: 160px; */
-  max-width: 50%;
+  max-width: 67%;
   margin: 0 auto;
 }
 
-
 @media (max-width: 920px) {
-
   div .schoolCard {
     margin: 10px;
-
   }
 }
 
 @media (max-width: 800px) {
-
   input {
     display: inline-block;
     -webkit-appearance: none;
-    margin-bottom: 15px !important;
+    /* margin-bottom: 15px !important; */
   }
 
   .cover-heading {
@@ -217,7 +200,7 @@ h1 {
 
   .colorSlashes,
   .sectionText {
-    margin: .2em 0;
+    margin: 0.2em 0;
   }
 
   .colorSlashes {
@@ -232,13 +215,12 @@ h1 {
   }
 
   .sectionTitle {
-    font-size: 4em !important;
-    margin: -.2em 0;
+    font-size: 3.8em !important;
+    margin: -0.2em 0;
   }
 
   .sectionHeading {
     font-size: 1.4em !important;
-
   }
 
   .statsCard {
@@ -248,7 +230,7 @@ h1 {
   .up-your-game {
     width: 477px !important;
   }
-  
+
   .breeze-through-your {
     width: 478px !important;
   }
@@ -256,10 +238,6 @@ h1 {
   .get-other-stud {
     width: 338px !important;
   }
-
-
-
-
 }
 
 @media (max-width: 484px) {
@@ -281,7 +259,6 @@ h1 {
     width: 145px;
     height: 50px;
     margin-bottom: 5px;
-
   }
 
   ul.yearButtons li {
@@ -293,7 +270,7 @@ h1 {
   }
 
   .finishButton {
-    font-size: .8em !important;
+    font-size: 0.8em !important;
     padding: 1rem 1em !important;
   }
 
@@ -318,7 +295,7 @@ h1 {
   }
 
   p.school-p-bottom {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 
   .cover-heading {
@@ -327,7 +304,7 @@ h1 {
 
   .colorSlashes,
   .sectionText {
-    margin: .2em 34px !important;
+    margin: 0.2em 34px !important;
   }
 
   .colorSlashes {
@@ -345,14 +322,12 @@ h1 {
 
   .sectionTitle {
     font-size: 2.8em !important;
-    margin: -.2em 8% !important;
+    margin: -0.2em 8% !important;
   }
 
   .sectionHeading {
     font-size: 1.4em !important;
-    margin: -.2em 5% !important;
-
-
+    margin: -0.2em 5% !important;
   }
   .statsCard {
     margin: 0 !important;
@@ -361,7 +336,7 @@ h1 {
   .up-your-game {
     width: 277px !important;
   }
-  
+
   .breeze-through-your {
     width: 278px !important;
   }
@@ -369,7 +344,7 @@ h1 {
   .finish-sub-heading-top {
     font-size: 2em !important;
   }
-  
+
   .p-3 {
     padding: 0 !important;
   }
@@ -387,6 +362,7 @@ h1 {
 
 .lead.main {
   font-weight: 400;
+  line-height: 30px;
   font-size: 1.2em;
 }
 
@@ -399,14 +375,14 @@ h1 {
 .lead.stakup {
   padding: 18px 0 18px 0;
   margin: 0;
-  font-weight: 400;
-  font-size: 1.05em;
+  font-weight: 600;
+  font-size: 32px;
 }
 
-.yearCardText {
-  padding: 18px 0 18px 0;
+p.yearCardText {
+  padding-top: 13%;
   font-weight: 400;
-  font-size: .85em;
+  font-size: 0.85em;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 2px;
@@ -420,7 +396,6 @@ h1 {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 
 /* Card Boxes */
 
@@ -449,7 +424,7 @@ h1 {
   width: 100%;
   top: 8px;
   left: -2px;
-  color: #CEB888;
+  color: #ceb888;
 }
 
 .statsImg {
@@ -471,7 +446,7 @@ h1 {
 
 .statsNumber {
   text-align: center;
-  color: #FF5D61;
+  color: #ff5d61;
   font-weight: 800;
   font-size: 70px;
 }
@@ -484,8 +459,7 @@ h1 {
   height: 184;
   background: linear-gradient(to right, #0a0a0b, #101214);
   margin: 15px;
-  /* margin-top: 3.8em;
-  margin-bottom: 3.8em; */
+
   text-align: left !important;
   position: relative;
   text-align: center;
@@ -493,12 +467,27 @@ h1 {
   margin-top: 10px;
 }
 
+.salaryDiv {
+  margin-bottom: 25px;
+}
+.salaryLow {
+  float: left;
+}
+.salaryHigh {
+  float: right;
+  text-align: right;
+}
+
 .schoolCard {
   display: inline-block;
   box-sizing: border-box;
   width: 147px;
   height: 172px;
-  background: linear-gradient(135.21deg, rgba(36, 38, 43, 0) 0%, rgba(25, 28, 31, 0.65) 100%);
+  background: linear-gradient(
+    135.21deg,
+    rgba(36, 38, 43, 0) 0%,
+    rgba(25, 28, 31, 0.65) 100%
+  );
   border-radius: 7px;
   margin: 20px;
   margin-top: 3.8em;
@@ -514,7 +503,6 @@ h1 {
   height: 82px;
   width: 82px;
   margin-top: 10px;
-
 }
 
 .schoolCard .school-p-bottom {
@@ -579,23 +567,19 @@ li {
   transition: all 0.3s ease;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   text-align: center;
   -webkit-appearance: none;
   margin: 0;
 }
 
-
-
-
 /*
  * Footer
  */
 .mastfoot {
-  color: rgba(255, 255, 255, .5);
+  color: rgba(255, 255, 255, 0.5);
 }
-
 
 /* StakUp Page Design */
 
@@ -605,13 +589,13 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 20px !important;
   margin-left: 1.7em !important;
   color: white !important;
-  font-size: .7em !important;
+  font-size: 0.7em !important;
   height: 40px !important;
 }
 
 .colorSlashes,
 .sectionText {
-  margin: .2em 0;
+  margin: 0.2em 0;
 }
 
 .colorSlashes {
@@ -627,12 +611,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .sectionTitle {
   font-size: 2em;
-  margin: -.2em 0;
+  margin: -0.2em 0;
 }
 
 .sectionHeading {
   font-size: 1.6em;
-
 }
 
 .graduationFloatBox {
@@ -650,7 +633,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .flex-container {
-
   -ms-box-orient: horizontal;
   display: -webkit-box;
   display: -moz-box;
@@ -690,16 +672,15 @@ input[type=number]::-webkit-outer-spin-button {
   float: right;
 }
 
-
 .colorSlashes,
 .sectionText {
-  margin: .4em 0;
+  margin: 0.4em 0;
 }
 
 .colorSlashes {
   font-size: 4.6em;
   margin: -30px 0;
-  padding-left: .1em;
+  padding-left: 0.1em;
 }
 
 .sectionText {
@@ -709,14 +690,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 .sectionHeading {
   font-size: 1.9em;
-  padding-left: .75em;
+  padding-left: 0.75em;
 }
 
 .sectionTitle {
-  font-size: 7em;
+  font-size: 6.3em;
   letter-spacing: 3px;
   font-weight: 700;
-  margin: -.2em 0;
+  margin: -0.2em 0;
 }
 
 .bottomSection {
@@ -724,53 +705,49 @@ input[type=number]::-webkit-outer-spin-button {
   left: 0;
   width: 100%;
   min-height: 600px;
-  background: linear-gradient(to right, #F64628, #4B095E);
+  background: linear-gradient(to right, #f64628, #4b095e);
 }
 
 .up-your-game {
   /* height: 222px; */
   width: 777px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 80px;
   font-weight: bold;
   line-height: 84px;
   text-align: center;
   margin: auto;
-  margin-top: .9em;
+  margin-top: 0.9em;
   margin-bottom: 1.2em;
 }
 
 .breeze-through-your {
   /* height: 154px; */
   width: 778px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 32.3px;
   font-weight: 500;
   line-height: 38px;
   text-align: center;
   margin: auto;
-  margin-top: -.9em;
-  margin-bottom: .5em;
+  margin-top: -0.9em;
+  margin-bottom: 0.5em;
 }
 
 .get-other-stud {
   /* height: 154px; */
   width: 778px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 22.3px;
   font-weight: 500;
   line-height: 38px;
   text-align: center;
   margin: auto;
-
 }
 
 .button-spacing {
   margin-top: 2.3em;
 }
-
-
-
 
 /* Button Design */
 
@@ -778,7 +755,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: inline-block;
   padding: 1rem 3.8rem;
   font-weight: 700;
-  font-size: .9em;
+  font-size: 0.9em;
   background: linear-gradient(to right, #d83b31, #801c4d);
   color: white;
   text-transform: uppercase;
@@ -796,7 +773,7 @@ input[type=number]::-webkit-outer-spin-button {
   box-sizing: border-box;
   color: #801c4d;
   display: block;
-  font: 1.125rem 'Oswald', Arial, sans-serif;
+  font: 1.125rem "Oswald", Arial, sans-serif;
   /*18*/
   height: 55px;
   letter-spacing: 3px;
@@ -824,7 +801,7 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
   justify-content: center;
   height: 100%;
-  transition: background .5s ease;
+  transition: background 0.5s ease;
   width: 100%;
 }
 

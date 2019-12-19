@@ -16,7 +16,9 @@
           <li>
             <div class="statsCard">
               <img class="statsImg" :src="getImgUrl(onboard.img)" />
-              <p class="statsParagraphTop">{{onboard.major.label | truncate(10, '...')}} // {{onboard.year}}</p>
+              <p
+                class="statsParagraphTop"
+              >{{onboard.major.label | truncate(12, '...')}} // {{onboard.year}}</p>
               <p class="statsNumber">#24</p>
               <p class="statsLogo">
                 <img src="../assets/UniStak Logo@3x.svg" alt="logo" width="80" height="14" />
@@ -25,13 +27,59 @@
           </li>
         </ul>
         <ul>
-          <li v-for="(result) in this.results" v-bind:key="result.key">
-            <div class="resultsCard">
-              {{result.name}}
-              <p class="lead stakup">{{result.stat}}</p>
+          <!-- Grades Card -->
+          <li>
+            <div class="resultsCard grades">
+              <div style="font-size: 1.35em;font-weight: 500;">{{results[0].name}}</div>
+              <p style="color: #F64628;" class="lead stakup">{{results[0].stat}}%</p>
               <p class="lead">
-                <b-progress id="1" :value="result.stat" :variant="result.variant"></b-progress>
+                <b-progress
+                  show-value
+                  id="1"
+                  :value="results[0].stat"
+                  :variant="results[0].variant"
+                ></b-progress>
               </p>
+            </div>
+          </li>
+
+          <!-- Graduation Card -->
+          <li>
+            <div class="resultsCard grad">
+              <div style="font-size: 1.35em; font-weight: 500;">{{results[1].name}}</div>
+              <p style="color: #CD01B0;" class="lead stakup">{{results[1].stat | round()}}%</p>
+              <p class="lead">
+                <b-progress>
+                  <b-progress-bar
+                    id="1"
+                    :value="results[1].completion"
+                    :label="`You are ${((this.results[1].completion)).toFixed(2)}% completed!`"
+                    :variant="results[1].variant"
+                  ></b-progress-bar>
+                </b-progress>
+              </p>
+            </div>
+          </li>
+
+          <!-- Salary Card -->
+          <li>
+            <div class="resultsCard">
+              <div style="font-size: 1.35em;font-weight: 500;">{{results[2].name}}</div>
+              <p style="color: #47EBFF;" class="lead stakup">${{results[2].salary | numberWithCommas()}}/y</p>
+              <p class="lead">
+                <b-progress>
+                  <b-progress-bar
+                    id="1"
+                    :value="results[2].stat"
+                    :label="`${((this.results[2].stat)).toFixed(2)}%`"
+                    :variant="results[2].variant"
+                  ></b-progress-bar>
+                </b-progress>
+              </p>
+              <div class="salaryDiv">
+                <div class="salaryLow">Low: ${{this.results[2].low | numberWithCommas()}}/y</div>
+                <div class="salaryHigh">High: ${{this.results[2].high | numberWithCommas()}}/y</div>
+              </div>
             </div>
           </li>
         </ul>
@@ -167,6 +215,7 @@ export default {
         {
           name: "Graduation",
           stat: 0,
+          completion: 0,
           yearAvg: 0,
           majorRatio: 0,
           variant: "success",
@@ -175,10 +224,13 @@ export default {
         {
           name: "Salary",
           stat: 0,
+          salary: 0,
           yearAvg: 0,
           majorRatio: 0,
           variant: "info",
-          key: 3
+          key: 3,
+          high: 0,
+          low: 0
         }
       ],
       queryResults: []
@@ -196,7 +248,7 @@ export default {
           school: "NULLNULL",
           id: "",
           gpa: "3.5",
-          major: {}, //are of study, salary, salary high, salary low
+          major: {}, //area of study, salary, salary high, salary low
           year: "Senior",
           img: ""
         };
@@ -205,11 +257,20 @@ export default {
   },
   methods: {
     setStats() {
-      this.results[0].stat = 0;
-      this.results[1].stat =
-        this.queryResults.completion.rate_suppressed.four_year * 100;
-      this.results[2].stat = 0;
-      console.log("hello");
+      // Setting Grades card data
+      this.results[0].stat = (this.onboard.gpa * 100) / 4;
+      
+
+      // Setting Graduation card data
+      this.results[1].stat = this.queryResults.completion.rate_suppressed.four_year * 100;
+      this.calculateCompletion();
+
+      // Setting salary card data
+      this.results[2].salary = this.onboard.major.salary;
+      this.results[2].high = this.onboard.major.salaryHigh;
+      this.results[2].low = this.onboard.major.salaryLow;
+      this.results[2].stat =
+        (this.onboard.major.salary / this.onboard.major.salaryHigh) * 100;
     },
     getImgUrl(pic) {
       return require("../assets/" + pic);
@@ -228,12 +289,41 @@ export default {
         id +
         "&api_key=ipjrz5j95hnEGS0dGvG5bcyWWzchHkapHV3gxTcO";
       return query;
+    },
+    calculateCompletion() {
+      console.log("entered");
+      let x = this.onboard.year;
+      console.log(x);
+      if (x === "Freshman") {
+          this.results[1].completion = 25;
+      } else if (x === "Sophomore") {
+        this.results[1].completion = 50;
+      } else if (x === "Junior") {
+        this.results[1].completion = 75;
+      } else if (x === "Senior") {
+        this.results[1].completion = 100;
+      } else if (x === "Graduate") {
+        this.results[1].completion = 200;
+      } else {
+        console.error("something bum happened")
+      }
     }
   },
   filters: {
-    // Truncate text that is too large to fit in cards/page 
+    // Truncate text that is too large to fit in cards/page
     truncate: function(text, length, suffix) {
       return text.substring(0, length) + suffix;
+    },
+    //seperate thousands in dollar amount
+    numberWithCommas: function(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    round: function(x) {
+      if (x < (Math.floor(x) + Math.ceil(x)) / 2) {
+        return Math.floor(x)
+      } else {
+        return Math.ceil(x);
+      }
     }
   },
   created() {

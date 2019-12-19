@@ -12,7 +12,7 @@
       <form>
         <!-- Step 1 -->
         <div class="clearfix" v-show="step === 1">
-          <h2>What school do you go to?</h2>
+          <h2>What university do you go to?</h2>
           <ul>
             <li
               v-on:click="
@@ -57,8 +57,9 @@
               v-model="onboard.major"
             />-->
             <v-select
+              class="style-chooser"
               v-model="onboard.major"
-              placeholder="Search for your major"
+              placeholder="Search for your area of study"
               :options="options"
             ></v-select>
           </p>
@@ -127,7 +128,7 @@ export default {
           img: "OhioStAthlOnBlack (1).png"
         },
         {
-          name: "Indiana University",
+          name: "Indiana",
           value: "iu",
           key: 4,
           img: "Indiana_Hoosiers_logo.svg (1).png"

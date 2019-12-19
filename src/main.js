@@ -7,10 +7,12 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/main.css';
 import routes from './routes';
 import axios from 'axios';
-import vSelect from 'vue-select'
+import vSelect from 'vue-select';
 
 Vue.component('v-select', vSelect)
 import 'vue-select/dist/vue-select.css';
+import './assets/dropdown_custom.css';
+import './assets/bootstrap_custom.css';
 
 Vue.prototype.$http = axios //global to access axios
 
